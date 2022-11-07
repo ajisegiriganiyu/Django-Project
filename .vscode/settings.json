@@ -1,0 +1,9 @@
+{
+    "python.terminal.activateEnvironment": true,
+    "html-css-class-completion.JavaScriptLanguages": [
+    
+        "javascript",
+        "javascriptreact",
+        "typescriptreact"
+    ]
+}

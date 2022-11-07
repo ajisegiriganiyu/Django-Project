@@ -1,0 +1,113 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Django Calculator App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Django Calculator App</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#instructions">Instructions</a>
+                              
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="container-fluid" style="margin-bottom: 20rem;">
+      <div class="row">
+        <div class="col-md-6" style="margin: 0 auto;">
+          {% if error %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <strong>Error</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              
+            </button>
+          </div>
+          {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>{{ans}}</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+              
+            </button>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="margin: 1rem auto 0 auto;">
+          <img class="img-fluid" src="{% static 'logo.jpg' %}">
+          <div class="card">
+            <div class="card-body">
+              <form method= "GET" action="{% url 'submitquery' %}">
+                <div class="input-group">
+                  <input type="search" class="form-control" name="query" id="query">
+                </div>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input type="submit" class="btn btn-success" style="display: block;margin: 0 auto;">
+                  </div> 
+                  <div class="col-md-6">
+                    <input type="reset" class="btn btn-danger" style="display: block;margin: 0 auto;">
+                  </div> 
+                </div>  
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="margin: 2rem auto 0 auto;">
+          <p class="display-4" id="about" name="About" style="text-align: center;">
+            About 
+          </p>
+          <hr>
+          <p class="lead" style="text-align: center;">
+            Our Calculator app can perform mathematical operations.
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6" style="margin: 2rem auto 0 auto;">
+          <p class="display-4" id="instructions" name="About" style="text-align: center;">
+            Instructions 
+          </p>
+          <hr>
+          <ul class="list-group">
+            <li class="list-group-item">+ Addition</li>
+            <li class="list-group-item">- Subtraction </li>
+            <li class="list-group-item">* Multiplication </li>
+            <li class="list-group-item">/ Division</li>
+            <li class="list-group-item">// Floor Division</li>
+            <li class="list-group-item">** Exponential</li>
+            <li class="list-group-item">% Mod</li>
+            <li class="list-group-item">( ) Parentheses</li>            
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <footer class="fixed-bottom navbar-light" style="background: black; color: white; text-align: center;">
+          <p>Thanks for using our app.</p>
+        </footer>
+        </div>
+      </div>
+    </div>
+    
+
+  </body>
+</html>
